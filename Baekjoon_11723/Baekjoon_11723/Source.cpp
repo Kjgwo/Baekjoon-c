@@ -4,12 +4,11 @@
 using namespace std;
 
 
-//비트마스크로 풀기
-
 int main() {
 
     ios_base::sync_with_stdio(0);
     cin.tie(0);
+    cout.tie(0);
 
     string prompt;
     int M, num;
@@ -22,7 +21,7 @@ int main() {
 
         if (prompt == "add") {
             cin >> num;
-            S |= (1 << num);
+            S = (S | (1 << num));
         }
 
         else if (prompt == "remove") {
@@ -31,7 +30,7 @@ int main() {
         }
         else if (prompt == "check") {
             cin >> num;
-            if (S & (1 << num)) {   //있으면
+            if (S & (1 << num)) {   
                 cout << "1\n";
             }
             else {
@@ -40,11 +39,11 @@ int main() {
         }
         else if (prompt == "toggle") {
             cin >> num;
-            if (S & (1 << num)) {  //있으면
-                S &= ~(1 << num); //없애고
+            if (S & (1 << num)) {  
+                S &= ~(1 << num); 
             }
-            else {             //없으면
-                S |= (1 << num);     //추가
+            else {             
+                S |= (1 << num);     
             }
         }
         else if (prompt == "all") {
