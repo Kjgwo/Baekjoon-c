@@ -3,9 +3,9 @@
 using namespace std;
 #define MAX 1001
 
-int N, M, V; //정점개수, 간선개수, 시작정점
-int map[MAX][MAX]; //인접 행렬 그래프
-bool visited[MAX]; //정점 방문 여부
+int N, M, V; 
+int map[MAX][MAX]; 
+bool visited[MAX]; 
 queue<int> q;
 
 void reset() {
@@ -19,7 +19,7 @@ void DFS(int v) {
     cout << v << " ";
 
     for (int i = 1; i <= N; i++) {
-        if (map[v][i] == 1 && visited[i] == 0) { //현재 정점과 연결되어있고 방문되지 않았으면
+        if (map[v][i] == 1 && visited[i] == 0) { 
             DFS(i);
         }
     }
@@ -35,7 +35,7 @@ void BFS(int v) {
         q.pop();
 
         for (int w = 1; w <= N; w++) {
-            if (map[v][w] == 1 && visited[w] == 0) { //현재 정점과 연결되어있고 방문되지 않았으면
+            if (map[v][w] == 1 && visited[w] == 0) { 
                 q.push(w);
                 visited[w] = true;
                 cout << w << " ";
@@ -56,8 +56,6 @@ int main() {
 
     reset();
     DFS(V);
-
-    cout << '\n';
 
     reset();
     BFS(V);
